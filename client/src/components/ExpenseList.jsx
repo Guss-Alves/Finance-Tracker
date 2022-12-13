@@ -57,12 +57,12 @@ const ExpenseList = () => {
                         return (
                             <div key={item._id} className="card p-3 bg-light " style={{ width: '22rem' }}>
                                 <div className='d-flex justify-content-between'>
-                                    <p className='card-title'><strong>Name:</strong> {item.name}</p>
+                                    <p className='card-title'>Name: <strong>{item.name}</strong> </p>
                                     <button onClick={() => deleteExpense(item._id)} className='delete btn btn-danger rounded-circle position-absolute'>X</button>
                                 </div>
-                                <p className=' card-text text-info'><strong>Category:</strong> {item.category}</p>
-                                <p className=' card-text'><strong>Date:</strong> {moment.utc(item.date).format("MMMM DD, YYYY")}</p>
-                                <p className=' card-text text-danger'><strong>Cost:</strong> $<span>{item.cost}</span></p>
+                                <p className=' card-text text-primary'>Category: <strong>{item.category}</strong></p>
+                                <p className=' card-text'> Date:<strong> {moment.utc(item.date).format("MMMM DD, YYYY")} </strong></p>
+                                <p className=' card-text text-danger'> Cost:<strong> $<span>{item.cost}</span></strong></p>
                             </div>
                         )
                     })
