@@ -6,10 +6,6 @@ const ExpenseSchema = new mongoose.Schema({
         required:[true, 'The expense name is required'],
         minlength: [2, 'The expense name must be at least 2 characters long']
     },
-    // category: {
-    //     type: String,
-    //     required: [true, 'The expense category is required']
-    // },
     category: {
         type: String,
         enum: {
@@ -17,17 +13,13 @@ const ExpenseSchema = new mongoose.Schema({
                 "Rent and Utilities", 
                 "Investing",
                 "Grocery",
-                "Gas", 
-                "Dining", 
-                "Car", 
+                "Dining",  
                 "Social", 
                 "Education", 
                 "Health", 
                 "Transportation",
                 "Travel", 
                 "Entertainment", 
-                "Insurance",
-                "Style",
                 "Other",
                 ],
             message: '{VALUE} is not supported as a category'

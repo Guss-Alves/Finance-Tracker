@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { DropdownButton, Dropdown } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import ExpenseList from './ExpenseList';
+import Graph from './Graph';
 
 const Dashboard = () => {
 
@@ -34,15 +35,6 @@ const Dashboard = () => {
             })
             .catch(err => { console.log(err) })
     }
-    //There is a bug now, if you delete a user with espenses, the code breaks
-    // const deleteUser = ()=>{
-    //     axios.delete(`http://localhost:8000/api/user/delete/${userInfo._id}`)
-    //         .then(res => {
-    //             console.log(res)
-    //             navigate('/')
-    //         })
-    //         .catch(err => { console.log(err) })
-    // }
 
     return (
         <div className='container'>
@@ -55,8 +47,11 @@ const Dashboard = () => {
                 </DropdownButton>
             </nav>
             <h2 className='mt-4 font'><strong>Welcome {userInfo.firstName}, keep track of your expenses below :</strong></h2>
-            <div>
+            <div className='expenseList'>
                 <ExpenseList/>
+            </div>
+            <div className='graph'>
+                <Graph/>
             </div>
         </div>
     );

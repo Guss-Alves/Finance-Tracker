@@ -10,17 +10,13 @@ const ExpenseForm = () => {
         "Rent and Utilities",
         "Investing",
         "Grocery",
-        "Gas",
         "Dining",
-        "Car",
         "Social",
         "Education",
         "Health",
         "Transportation",
         "Travel",
         "Entertainment",
-        "Insurance",
-        "Style",
         "Other",
     ]
 
