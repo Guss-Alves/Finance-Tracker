@@ -47,6 +47,7 @@ const ExpenseList = () => {
         // }).reduce((acc, obj) => { return acc + obj.price}, 0);
         // return sum;
     }
+    //here I have to get the total for each category
 
     return (
         <div>

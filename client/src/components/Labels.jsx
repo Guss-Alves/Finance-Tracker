@@ -2,6 +2,7 @@ import React from 'react';
 
 const Labels = () => {
 
+    //this prbably has to go way, because can't make dinamic with this obj
     const obj = [
         {
             type: "Rent and Utilities",
@@ -59,6 +60,7 @@ const Labels = () => {
             percent: 15
         }
     ]
+    //here I shoud get all the categories from api to avoid dry
 
 
     return (
