@@ -6,6 +6,7 @@ import { DropdownButton, Dropdown } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import ExpenseList from './ExpenseList';
 import Graph from './Graph';
+import PieGraph from './PieGraph';
 
 const Dashboard = () => {
 
@@ -52,6 +53,7 @@ const Dashboard = () => {
             </div>
             <div className='graph'>
                 <Graph/>
+                {/* <PieGraph/> */}
             </div>
         </div>
     );
