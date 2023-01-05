@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Doughnut } from 'react-chartjs-2'
 import { Chart, ArcElement, Legend, Tooltip, Title } from 'chart.js';
-// import Labels from './Labels';
 import axios from 'axios';
+import _ from 'lodash';
 // import ExpenseList from './ExpenseList';
 
 const Graph = () => {
@@ -38,8 +38,24 @@ const Graph = () => {
                     categoriesArr.push(dataObj.category);
                     categoriesCost.push(dataObj.cost);
                 }
-                console.log('its here dummy', categoriesArr);
-                console.log('I AM HEREEE, YES THE COST', categoriesCost)
+                // console.log('its here dummy', categoriesArr);
+                // console.log('I AM HEREEE, YES THE COST', categoriesCost)
+
+                //HERE STARTS THE FUNCTIONS TO HAVE DINAMIC DATA ON THE CHART
+                let storeData = [];
+                function getSum(transaction){
+                    let sum = _(transaction)
+                            .groupBy("category")
+                            .map((objs, key)=>{
+                                return objs
+                            })
+                            .value()
+                    storeData.push(transaction);
+                    console.log(sum);
+                }
+                getSum(res.data.results);
+                console.log('now is outside the function',storeData);
+
                 setData(
                     {
                         datasets: [{
@@ -60,7 +76,6 @@ const Graph = () => {
                         ],
                         labels: categoriesArr,
                     },)
-                
             })
             .catch(err => {
                 console.log('something went wrong -->', err)

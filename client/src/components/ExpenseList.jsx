@@ -12,7 +12,7 @@ const ExpenseList = () => {
     useEffect(() => {
         axios.get('http://localhost:8000/api/loggedUserExpenses', {withCredentials:true})
             .then(res => {
-                console.log('List res ->', res)
+                // console.log('List res ->', res)
                 setAllExpenses(res.data.results)
             })
             .catch(err => {
@@ -23,7 +23,7 @@ const ExpenseList = () => {
     const deleteExpense = (id) => {
         axios.delete(`http://localhost:8000/api/expense/delete/${id}`)
             .then(res => {
-                console.log(res)
+                // console.log(res)
                 setDeleteClicked(!deleteclicked)
             })
             .catch(err => {
@@ -32,7 +32,7 @@ const ExpenseList = () => {
     }
 
     const calculateTotal = ()=>{
-        console.log('Here is the Total ->', allexpenses)
+        // console.log('Here is the Total ->', allexpenses);
         let sum = allexpenses.reduce((accumulator, value)=> {
             return accumulator + value.cost;
         }, 0)

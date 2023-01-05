@@ -6,7 +6,7 @@ import { DropdownButton, Dropdown } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import ExpenseList from './ExpenseList';
 import Graph from './Graph';
-import PieGraph from './PieGraph';
+// import PieGraph from './PieGraph';
 
 const Dashboard = () => {
 
@@ -17,7 +17,7 @@ const Dashboard = () => {
     useEffect(() => {
         axios.get('http://localhost:8000/api/user/getloggedinuser', { withCredentials: true })
             .then(res => {
-                console.log('res -->', res)
+                // console.log('res of user -->', res);
                 if (res.data.results) {
                     setUserInfo(res.data.results)
                 }
