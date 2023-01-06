@@ -31,50 +31,47 @@ const Graph = () => {
     useEffect(() => {
         axios.get('http://localhost:8000/api/loggedUserExpenses', { withCredentials: true })
             .then(res => {
-                console.log('List res FOR THE CHART ->', res)
+                // console.log('List res FOR THE CHART ->', res)
+
+                 //HERE STARTS THE FUNCTIONS TO HAVE DINAMIC DATA ON THE CHART
                 const categoriesArr = [];
-                const categoriesCost = [];
+                //here I will loop and get all the categories
                 for (const dataObj of res.data.results) {
                     categoriesArr.push(dataObj.category);
-                    categoriesCost.push(dataObj.cost);
                 }
-                // console.log('its here dummy', categoriesArr);
-                // console.log('I AM HEREEE, YES THE COST', categoriesCost)
+                //here I am getting rid of the duplicates categories inside the array
+                let uniqueCategories = [...new Set(categoriesArr)];
 
-                //HERE STARTS THE FUNCTIONS TO HAVE DINAMIC DATA ON THE CHART
-                let storeData = [];
-                function getSum(transaction){
-                    let sum = _(transaction)
+                //here I am using lodash to group by categories and to get the total cost for each category
+                let sum = _(res.data.results)
                             .groupBy("category")
                             .map((objs, key)=>{
-                                return objs
+                                return _.sumBy(objs, 'cost')
                             })
                             .value()
-                    storeData.push(transaction);
-                    console.log(sum);
-                }
-                getSum(res.data.results);
-                console.log('now is outside the function',storeData);
 
                 setData(
                     {
                         datasets: [{
-                            data: categoriesCost,
+                            data: sum,
                             backgroundColor: [
                                 'red',
                                 'blue',
                                 'yellow',
-                                'orange',
+                                'lime',
+                                'teal',
+                                'firebrick',
+                                'cyan',
                                 'green',
                                 'purple',
-                                'brown',
-                                'aqua',
-                                'white'
+                                'pink',
+                                'orange '
                             ],
                             hoverOffset: 14,
+                            spacing: 12,
                         },
                         ],
-                        labels: categoriesArr,
+                        labels: uniqueCategories,
                     },)
             })
             .catch(err => {
@@ -85,14 +82,14 @@ const Graph = () => {
 
     return (
         <div>
-            <strong><h1 className='text-center mb-3'>Expenses Chart</h1></strong>
+            <strong><h1 className='text-center mb-1'>Expenses by Category</h1></strong>
             <div className="d-flex justify-content-center align-items-center mb-5 ">
-                <div className="graph d-flex justify-content-center m-5" style={{ height: '430px' }}>
+                <div className="graph d-flex justify-content-center m-5" style={{ height: '440px' }}>
                     <Doughnut data={data} />
                 </div>
-                {/* <div className="labels">
-                    <Labels />
-                </div> */}
+                <div>
+
+                </div>
             </div>
         </div>
     );

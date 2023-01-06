@@ -33,30 +33,20 @@ const ExpenseList = () => {
 
     const calculateTotal = ()=>{
         // console.log('Here is the Total ->', allexpenses);
-        let sum = allexpenses.reduce((accumulator, value)=> {
+        let sumTotal = allexpenses.reduce((accumulator, value)=> {
             return accumulator + value.cost;
         }, 0)
-        return sum;
-
-        // let sum = myExpenses.filter(expense=>expense.category.includes(selectedCat)).filter(expense=>{
-        //     if(selectedDate<13){
-        //         return moment.utc(expense.date).month() == selectedDate
-        //     }else{
-        //         return true
-        //     }
-        // }).reduce((acc, obj) => { return acc + obj.price}, 0);
-        // return sum;
+        return sumTotal;
     }
-    //here I have to get the total for each category
 
     return (
         <div>
-            <h2 className='card bg-warning p-1 mt-4 text-center'>Total Amount: ${calculateTotal()}</h2>
+            <h2 className='card bg-warning p-1 mt-4 text-center'>Total Amount: <strong>${calculateTotal()}</strong></h2>
             <div className='space  d-flex flex-wrap gap-2 justify-content-center mt-3 mb-5 '>
                 {
                     allexpenses.map((item) => {
                         return (
-                            <div key={item._id} className="card p-3 bg-light " style={{ width: '22rem' }}>
+                            <div key={item._id} className="card p-2 bg-light " style={{ width: '21rem' }}>
                                 <div className='d-flex justify-content-between'>
                                     <p className='card-title'>Name: <strong>{item.name}</strong> </p>
                                     <button onClick={() => deleteExpense(item._id)} className='delete btn btn-danger rounded-circle position-absolute'>X</button>

@@ -53,7 +53,6 @@ const Dashboard = () => {
             </div>
             <div className='graph'>
                 <Graph/>
-                {/* <PieGraph/> */}
             </div>
         </div>
     );
