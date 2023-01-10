@@ -5,7 +5,7 @@ import axios from 'axios';
 import _ from 'lodash';
 // import ExpenseList from './ExpenseList';
 
-const Graph = () => {
+const Graph = (props) => {
 
     Chart.register(
         ArcElement, Legend, Tooltip, Title
@@ -77,14 +77,14 @@ const Graph = () => {
             .catch(err => {
                 console.log('something went wrong -->', err)
             })
-    }, []);
+    }, [props.updateGraph]);
 
 
     return (
         <div>
             <strong><h1 className='text-center mb-1'>Expenses by Category</h1></strong>
             <div className="d-flex justify-content-center align-items-center mb-5 ">
-                <div className="graph d-flex justify-content-center m-5" style={{ height: '440px' }}>
+                <div className="graph d-flex justify-content-center m-5" style={{ height: '435px' }}>
                     <Doughnut data={data} />
                 </div>
                 <div>

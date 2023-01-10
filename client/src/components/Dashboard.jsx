@@ -11,6 +11,7 @@ import Graph from './Graph';
 const Dashboard = () => {
 
     let [userInfo, setUserInfo] = useState({})
+    let [updateGraph, setupdateGraph] = useState(false)
 
     const navigate = useNavigate();
 
@@ -49,10 +50,11 @@ const Dashboard = () => {
             </nav>
             <h2 className='mt-4 font'><strong>Welcome {userInfo.firstName}, keep track of your expenses below :</strong></h2>
             <div className='expenseList'>
-                <ExpenseList/>
+                <ExpenseList updateGraph={updateGraph} setupdateGraph={setupdateGraph} />
             </div>
+            <hr></hr>
             <div className='graph'>
-                <Graph/>
+                <Graph updateGraph={updateGraph}/>
             </div>
         </div>
     );

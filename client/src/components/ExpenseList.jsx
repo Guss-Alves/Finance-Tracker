@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import moment from 'moment';
 
-const ExpenseList = () => {
+const ExpenseList = (props) => {
 
     let [allexpenses, setAllExpenses] = useState([]);
     let [deleteclicked, setDeleteClicked] = useState(false)
@@ -25,6 +25,7 @@ const ExpenseList = () => {
             .then(res => {
                 // console.log(res)
                 setDeleteClicked(!deleteclicked)
+                props.setupdateGraph(!props.updateGraph)
             })
             .catch(err => {
                 console.log('something went wrong -->', err)
