@@ -41,6 +41,7 @@ const Graph = (props) => {
                 }
                 //here I am getting rid of the duplicates categories inside the array
                 let uniqueCategories = [...new Set(categoriesArr)];
+                // console.log('here is cat', uniqueCategories);
 
                 //here I am using lodash to group by categories and to get the total cost for each category
                 let sum = _(res.data.results)
@@ -48,12 +49,13 @@ const Graph = (props) => {
                             .map((objs, key)=>{
                                 return _.sumBy(objs, 'cost')
                             })
-                            .value()
+                            .value();
 
+                // console.log('here is sum', sum);
                 setData(
                     {
                         datasets: [{
-                            data: sum,
+                            data: sum.length===0? [1,1,1] : sum,
                             backgroundColor: [
                                 'red',
                                 'blue',
@@ -67,11 +69,11 @@ const Graph = (props) => {
                                 'pink',
                                 'orange '
                             ],
-                            hoverOffset: 14,
+                            hoverOffset: 12,
                             spacing: 12,
                         },
                         ],
-                        labels: uniqueCategories,
+                        labels: uniqueCategories.length===0? ["NO", "EXPENSES", "YET"] : uniqueCategories,
                     },)
             })
             .catch(err => {

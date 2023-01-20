@@ -14,6 +14,7 @@ const ExpenseList = (props) => {
             .then(res => {
                 // console.log('List res ->', res)
                 setAllExpenses(res.data.results)
+                // console.log('here my friend', allexpenses);
             })
             .catch(err => {
                 console.log('something went wrong -->', err)
@@ -43,8 +44,9 @@ const ExpenseList = (props) => {
     return (
         <div>
             <h2 className='card bg-warning p-1 mt-4 text-center'>Total Amount: <strong>${calculateTotal()}</strong></h2>
-            <div className='space  d-flex flex-wrap gap-2 justify-content-center mt-3 mb-5 '>
+            <div className='space  d-flex flex-wrap gap-2 justify-content-center mt-3 mb-4 '>
                 {
+                    allexpenses.length!==0?
                     allexpenses.map((item) => {
                         return (
                             <div key={item._id} className="card p-2 bg-light " style={{ width: '21rem' }}>
@@ -57,7 +59,7 @@ const ExpenseList = (props) => {
                                 <p className=' card-text text-danger'> Cost:<strong> $<span>{item.cost}</span></strong></p>
                             </div>
                         )
-                    })
+                    }): <h2 className='text-primary'>Create expenses to see the list !</h2>
                 }
             </div>
         </div>
