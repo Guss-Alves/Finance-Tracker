@@ -59,7 +59,7 @@ const ExpenseList = (props) => {
                                 <p className=' card-text text-danger'> Cost:<strong> $<span>{item.cost}</span></strong></p>
                             </div>
                         )
-                    }): <h2 className='text-primary'>Create expenses to see the list !</h2>
+                    }): <span style={{ fontSize: "25px"}}>Create expenses to see the list !</span>
                 }
             </div>
         </div>
