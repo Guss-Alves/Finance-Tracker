@@ -6,7 +6,7 @@ import {
     Routes,
     Route
 } from "react-router-dom";
-
+import './components/styles/signIn.css'
 
 function App() {
     return (

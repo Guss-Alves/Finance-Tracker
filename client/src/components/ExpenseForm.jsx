@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import './styles/dashboard.css'
 
 const ExpenseForm = () => {
 
@@ -51,7 +52,7 @@ const ExpenseForm = () => {
     return (
         <div>
             <h1 className='text-center mt-4'>Add a new expense </h1>
-            <form onSubmit={submitHandler} className="form p-3 rounded" style={{ width: '600px' }}>
+            <form onSubmit={submitHandler} className="expenseForm form p-3 rounded" style={{ width: '600px' }}>
                 <div className="form-group">
                     <label className='h3'>Name :</label>
                     <input onChange={changeHandler} type="text" name="name" className='form-control' />

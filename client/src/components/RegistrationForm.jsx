@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import './styles/signIn.css'
 
 const RegistrationForm = () => {
 
@@ -36,7 +37,7 @@ const RegistrationForm = () => {
     return (
         <div className='mt-5'>
             <h1 className='text-primary'>Register</h1>
-            <form onSubmit={submitHandler}  style={{width: '500px'}} className='mt-3' >
+            <form onSubmit={submitHandler}  style={{width: '500px'}} className='mt-3 regForm' >
                 <div className="form-group">
                     <label className='h3' htmlFor="">First name:</label>
                     <input onChange={changeHandler} type="text" name="firstName" className='form-control'/>

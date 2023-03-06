@@ -1,6 +1,7 @@
 import React from 'react';
 import RegistrationForm from './RegistrationForm';
 import LoginForm from './LoginForm';
+import './styles/signIn.css'
 
 const SignIn = () => {
     return (
@@ -17,7 +18,7 @@ const SignIn = () => {
                         </div>
                     </div>
                 </div>
-                <div className="ms-5 mt-5">
+                <div className="ms-5 mt-5 signInfo">
                     <h2 className='text-primary'>Are you tired of losing track of your monthly expenses?</h2>
                     <h4 className='mt-3'>With Finance Tracker you will never have this problem again !!</h4>
                     <ul className='mt-3'>

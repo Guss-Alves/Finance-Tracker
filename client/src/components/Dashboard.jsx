@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import ExpenseList from './ExpenseList';
 import Graph from './Graph';
 // import PieGraph from './PieGraph';
+import './styles/dashboard.css'
 
 const Dashboard = () => {
 
@@ -40,9 +41,9 @@ const Dashboard = () => {
 
     return (
         <div className='container'>
-            <nav className="navbar navbar-light bg-light d-flex justify-content-between mt-4 rounded">
-                <h1 className='ms-5'>Finance Tracker</h1>
-                <DropdownButton className='me-5' title="Actions">
+            <nav className="dashboardTop navbar navbar-light bg-light d-flex justify-content-between mt-4 rounded">
+                <h1 className='homeTitle ms-5'>Finance Tracker</h1>
+                <DropdownButton className='buttonHome me-5' title="Actions">
                     <Dropdown.Item><Link className='text-decoration-none text-success' to='/api/expense/new'>Add Expense</Link></Dropdown.Item>
                     <Dropdown.Item><button onClick={Logout} className='button'>Logout</button></Dropdown.Item>
                     {/* <Dropdown.Item> <button onClick={deleteUser} className='button text-danger'>Delete User</button></Dropdown.Item> */}

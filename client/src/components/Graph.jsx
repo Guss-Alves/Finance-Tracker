@@ -4,6 +4,7 @@ import { Chart, ArcElement, Legend, Tooltip, Title } from 'chart.js';
 import axios from 'axios';
 import _ from 'lodash';
 // import ExpenseList from './ExpenseList';
+import './styles/dashboard.css'
 
 const Graph = (props) => {
 
@@ -86,7 +87,7 @@ const Graph = (props) => {
         <div>
             <strong><h1 className='text-center mb-1'>Expenses by Category</h1></strong>
             <div className="d-flex justify-content-center align-items-center mb-5 ">
-                <div className="graph d-flex justify-content-center m-5" style={{ height: '435px' }}>
+                <div className="pieChart graph d-flex justify-content-center m-5" style={{ height: '435px' }}>
                     <Doughnut data={data} />
                 </div>
                 <div>

@@ -1,0 +1,11 @@
+@media screen and (max-width: 480px) {
+.signInfo{
+    display: none;
+}
+.regForm{
+    width: 90% !important;
+}
+.loginForm{
+    width: 90% !important;
+}
+}

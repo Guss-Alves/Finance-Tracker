@@ -1,0 +1,14 @@
+@media screen and (max-width: 480px) {
+.homeTitle{
+    margin: 0 0 0 10px !important;
+}
+.pieChart{
+    height: 370px !important;
+}
+.buttonHome{
+    margin: 0 10px 0 0 !important;
+}
+.expenseForm{
+    width: 95% !important;
+}
+}
