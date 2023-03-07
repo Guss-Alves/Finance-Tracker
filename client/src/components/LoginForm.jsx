@@ -49,7 +49,7 @@ const LoginForm = () => {
                 <label className='h3' htmlFor="">Password:</label>
                 <input  onChange={changeHandler} type="password" name="password" className='form-control'/>
             </div>
-            <input type="submit" value="Login" className='btn btn-success mt-3 btn-lg' />
+            <input type="submit" value="Log In" className='btn btn-success mt-3 btn-lg' />
         </form>
     </div>
     );

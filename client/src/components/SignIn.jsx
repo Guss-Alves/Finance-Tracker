@@ -1,20 +1,40 @@
-import React from 'react';
+import React, {useState} from 'react';
 import RegistrationForm from './RegistrationForm';
 import LoginForm from './LoginForm';
 import './styles/signIn.css'
 
 const SignIn = () => {
+
+    const [hasAccount, setHasAccount] = useState(false);
+
+    const handleClickFalse = () =>{
+        setHasAccount(false);
+    }
+
+    const handleClickTrue = () =>{
+        setHasAccount(true);
+    }
+
     return (
         <div>
             <h1 className='text-center mt-4'>Finance Tracker Website</h1>
             <div className="sides d-flex mt-2">
                 <div className="main" style={{ width: '500px' }}>
-                    <div>
-                        <div className="reg">
-                            <RegistrationForm />
+                    <div className="logInOptions mt-5 d-flex justify-content-around mb-3">
+                        <div className="logInOption">
+                            <button className='btn btn-outline-primary btn-lg' onClick={handleClickFalse}>Create new account</button>
                         </div>
-                        <div className="login">
-                            <LoginForm />
+                        <div className="logInOption">
+                            <button className='btn btn-outline-primary btn-lg' onClick={handleClickTrue}>Log In</button>
+                        </div>
+                    </div>
+                    <div>
+                        <div className="regAndLogin mb-5">
+                            {
+                                hasAccount?
+                                <LoginForm/> :
+                                <RegistrationForm/>
+                            }
                         </div>
                     </div>
                 </div>

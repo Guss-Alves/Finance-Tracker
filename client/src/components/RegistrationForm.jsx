@@ -35,7 +35,7 @@ const RegistrationForm = () => {
 
 
     return (
-        <div className='mt-5'>
+        <div className=''>
             <h1 className='text-primary'>Register</h1>
             <form onSubmit={submitHandler}  style={{width: '500px'}} className='mt-3 regForm' >
                 <div className="form-group">
