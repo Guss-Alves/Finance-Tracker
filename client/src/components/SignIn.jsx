@@ -7,14 +7,6 @@ const SignIn = () => {
 
     const [hasAccount, setHasAccount] = useState(false);
 
-    const handleClickFalse = () =>{
-        setHasAccount(false);
-    }
-
-    const handleClickTrue = () =>{
-        setHasAccount(true);
-    }
-
     return (
         <div>
             <h1 className='text-center mt-4'>Finance Tracker Website</h1>
@@ -22,10 +14,10 @@ const SignIn = () => {
                 <div className="main" style={{ width: '500px' }}>
                     <div className="logInOptions mt-5 d-flex justify-content-around mb-3">
                         <div className="logInOption">
-                            <button className='btn btn-outline-primary btn-lg' onClick={handleClickFalse}>Create new account</button>
+                            <button className='btn btn-outline-primary btn-lg' onClick={()=> setHasAccount(false)}>Create new account</button>
                         </div>
                         <div className="logInOption">
-                            <button className='btn btn-outline-primary btn-lg' onClick={handleClickTrue}>Log In</button>
+                            <button className='btn btn-outline-primary btn-lg' onClick={()=> setHasAccount(true)}>Log In</button>
                         </div>
                     </div>
                     <div>
